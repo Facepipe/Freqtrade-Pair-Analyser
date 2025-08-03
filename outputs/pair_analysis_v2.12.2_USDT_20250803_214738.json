@@ -1,0 +1,123 @@
+{
+  "metadata": {
+    "version": "2.12.2",
+    "quote_currency": "USDT",
+    "timeframe": "15m",
+    "days_analyzed": 90,
+    "analysis_date": "20250803_214738",
+    "analysis_timestamp": "2025-08-03T21:47:38.369621",
+    "successful_pairs": 5,
+    "failed_pairs": 0,
+    "total_processing_time_minutes": 0.0016477386156717936,
+    "components": {
+      "analysis_engine": "1.0.4",
+      "data_manager": "1.6.3"
+    },
+    "parameters": {
+      "max_workers": 8,
+      "min_data_points": 30,
+      "extra_days": 7
+    }
+  },
+  "results": [
+    {
+      "pair": "BIFI/USDT",
+      "volatility": 4.131930052933391,
+      "trend_strength": 36.303390917587016,
+      "volume_score": 8.489685457820332,
+      "coral_score": 0.020618556701030927,
+      "stc_score": 0.481886103359405,
+      "data_points": 97,
+      "data_quality": 1.0,
+      "timeframe": "1h",
+      "processing_time": 0.07698512077331543,
+      "analyzer_version": "2.12.2",
+      "composite_score": 0.40397819958614795
+    },
+    {
+      "pair": "TUSD/USDT",
+      "volatility": 0.06727048128788407,
+      "trend_strength": 67.09703605684015,
+      "volume_score": 13.422021806955831,
+      "coral_score": 0.041237113402061855,
+      "stc_score": 5.0338997504334575,
+      "data_points": 97,
+      "data_quality": 1.0,
+      "timeframe": "1h",
+      "processing_time": 0.08000040054321289,
+      "analyzer_version": "2.12.2",
+      "composite_score": 0.35009431706521565
+    },
+    {
+      "pair": "USDP/USDT",
+      "volatility": 0.02927626786344526,
+      "trend_strength": 58.64510230247934,
+      "volume_score": 13.988224216333675,
+      "coral_score": 0.020618556701030927,
+      "stc_score": 11.382675179999454,
+      "data_points": 97,
+      "data_quality": 1.0,
+      "timeframe": "1h",
+      "processing_time": 0.07854008674621582,
+      "analyzer_version": "2.12.2",
+      "composite_score": 0.3317568211491011
+    },
+    {
+      "pair": "EUR/USDT",
+      "volatility": 0.38478112384205354,
+      "trend_strength": 30.449113683443304,
+      "volume_score": 16.872229467072106,
+      "coral_score": 0.010309278350515464,
+      "stc_score": 4.652242666114757,
+      "data_points": 97,
+      "data_quality": 1.0,
+      "timeframe": "1h",
+      "processing_time": 0.09518027305603027,
+      "analyzer_version": "2.12.2",
+      "composite_score": 0.2855073263318457
+    },
+    {
+      "pair": "XUSD/USDT",
+      "volatility": 0.018552820974276376,
+      "trend_strength": 27.703547986577245,
+      "volume_score": 15.81101058219262,
+      "coral_score": 0.0,
+      "stc_score": 14.015915593884984,
+      "data_points": 97,
+      "data_quality": 1.0,
+      "timeframe": "1h",
+      "processing_time": 0.09662151336669922,
+      "analyzer_version": "2.12.2",
+      "composite_score": 0.25616430642425675
+    }
+  ],
+  "failed_pairs": [],
+  "top_pairs": [
+    "BIFI/USDT",
+    "TUSD/USDT",
+    "USDP/USDT",
+    "EUR/USDT",
+    "XUSD/USDT"
+  ],
+  "summary_statistics": {
+    "composite_score": {
+      "mean": 0.3255001941113134,
+      "median": 0.3317568211491011,
+      "max": 0.40397819958614795,
+      "min": 0.25616430642425675,
+      "stdev": 0.05746674778436639
+    },
+    "volatility": {
+      "mean": 0.92636214938021,
+      "median": 0.06727048128788407,
+      "max": 4.131930052933391,
+      "min": 0.018552820974276376
+    },
+    "trend_strength": {
+      "mean": 44.039638189385414,
+      "median": 36.303390917587016,
+      "max": 67.09703605684015,
+      "min": 27.703547986577245
+    }
+  }
+}
