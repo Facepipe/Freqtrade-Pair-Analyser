@@ -1,0 +1,20 @@
+{
+    "description": "Stable pairs with volatility <= 0.5",
+    "config_name": "stable_btc",
+    "created": "2025-08-04T19:24:33.708148+00:00",
+    "exchange": {
+        "pair_whitelist": [
+            "EUR/USDT",
+            "TUSD/USDT",
+            "USDP/USDT",
+            "XUSD/USDT"
+        ],
+        "pair_blacklist": []
+    },
+    "whitelist_count": 4,
+    "blacklist_count": 0,
+    "filter_criteria": {
+        "max_volatility": 0.5,
+        "min_volume": 500
+    }
+}

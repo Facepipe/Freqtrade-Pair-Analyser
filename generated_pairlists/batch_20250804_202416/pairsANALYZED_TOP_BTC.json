@@ -1,0 +1,41 @@
+{
+    "description": "Top analyzed pairs (min score: 0.3, top 3 pairs)",
+    "config_name": "analyzed_top_btc",
+    "created": "2025-08-04T19:24:29.539748+00:00",
+    "exchange": {
+        "pair_whitelist": [
+            "BIFI/USDT",
+            "TUSD/USDT",
+            "USDP/USDT"
+        ],
+        "pair_blacklist": []
+    },
+    "whitelist_count": 3,
+    "blacklist_count": 0,
+    "filter_criteria": {
+        "min_composite_score": 0.3,
+        "top_n": 50,
+        "analysis_file": "outputs/pair_analysis_v2.12.2_USDT_20250803_214738.json",
+        "analysis_date": "20250803_214738"
+    },
+    "pair_metadata": {
+        "BIFI/USDT": {
+            "composite_score": 0.40397819958614795,
+            "volatility": 4.131930052933391,
+            "trend_strength": 36.303390917587016,
+            "volume_score": 8.489685457820332
+        },
+        "TUSD/USDT": {
+            "composite_score": 0.35009431706521565,
+            "volatility": 0.06727048128788407,
+            "trend_strength": 67.09703605684015,
+            "volume_score": 13.422021806955831
+        },
+        "USDP/USDT": {
+            "composite_score": 0.3317568211491011,
+            "volatility": 0.02927626786344526,
+            "trend_strength": 58.64510230247934,
+            "volume_score": 13.988224216333675
+        }
+    }
+}

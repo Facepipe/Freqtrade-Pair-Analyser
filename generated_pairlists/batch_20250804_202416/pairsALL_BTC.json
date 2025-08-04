@@ -1,0 +1,602 @@
+{
+    "description": "ALL BTC pairs from exchange (min 1e-06 BTC volume, 115 total pairs)",
+    "config_name": "all_pairs_btc",
+    "created": "2025-08-04T19:24:21.154951+00:00",
+    "exchange": {
+        "pair_whitelist": [
+            "A/BTC",
+            "ACH/BTC",
+            "ADX/BTC",
+            "AEVO/BTC",
+            "AGLD/BTC",
+            "AI/BTC",
+            "ALT/BTC",
+            "API3/BTC",
+            "APT/BTC",
+            "AR/BTC",
+            "ARDR/BTC",
+            "ARKM/BTC",
+            "ASTR/BTC",
+            "ATA/BTC",
+            "AUCTION/BTC",
+            "AVA/BTC",
+            "AWE/BTC",
+            "AXL/BTC",
+            "BANANA/BTC",
+            "BAND/BTC",
+            "BB/BTC",
+            "BEL/BTC",
+            "BERA/BTC",
+            "BICO/BTC",
+            "CELO/BTC",
+            "CTK/BTC",
+            "CTSI/BTC",
+            "CYBER/BTC",
+            "DATA/BTC",
+            "DIA/BTC",
+            "DODO/BTC",
+            "EIGEN/BTC",
+            "FET/BTC",
+            "FIDA/BTC",
+            "FIS/BTC",
+            "FLM/BTC",
+            "FLUX/BTC",
+            "FORTH/BTC",
+            "GAS/BTC",
+            "GLMR/BTC",
+            "GMT/BTC",
+            "HEI/BTC",
+            "HFT/BTC",
+            "ILV/BTC",
+            "IMX/BTC",
+            "IO/BTC",
+            "JST/BTC",
+            "KAITO/BTC",
+            "KDA/BTC",
+            "LAYER/BTC",
+            "LDO/BTC",
+            "LSK/BTC",
+            "MAGIC/BTC",
+            "MANTA/BTC",
+            "MAV/BTC",
+            "ME/BTC",
+            "MOVE/BTC",
+            "MOVR/BTC",
+            "NEXO/BTC",
+            "NFP/BTC",
+            "NKN/BTC",
+            "OG/BTC",
+            "OM/BTC",
+            "OMNI/BTC",
+            "ONG/BTC",
+            "OP/BTC",
+            "ORDI/BTC",
+            "OXT/BTC",
+            "PAXG/BTC",
+            "PENDLE/BTC",
+            "PHA/BTC",
+            "PHB/BTC",
+            "PIVX/BTC",
+            "PNUT/BTC",
+            "POL/BTC",
+            "POLYX/BTC",
+            "PORTAL/BTC",
+            "POWR/BTC",
+            "PYTH/BTC",
+            "QTUM/BTC",
+            "RARE/BTC",
+            "RED/BTC",
+            "RENDER/BTC",
+            "REQ/BTC",
+            "RIF/BTC",
+            "RONIN/BTC",
+            "S/BTC",
+            "SAGA/BTC",
+            "SANTOS/BTC",
+            "SCR/BTC",
+            "SCRT/BTC",
+            "SFP/BTC",
+            "SHELL/BTC",
+            "SKL/BTC",
+            "SLF/BTC",
+            "SSV/BTC",
+            "STEEM/BTC",
+            "STG/BTC",
+            "STORJ/BTC",
+            "STRAX/BTC",
+            "SYS/BTC",
+            "TAO/BTC",
+            "TFUEL/BTC",
+            "TIA/BTC",
+            "TON/BTC",
+            "UMA/BTC",
+            "W/BTC",
+            "WAN/BTC",
+            "WIF/BTC",
+            "XNO/BTC",
+            "XVS/BTC",
+            "YFI/BTC",
+            "ZEN/BTC",
+            "ZK/BTC",
+            "ZRO/BTC"
+        ],
+        "pair_blacklist": []
+    },
+    "whitelist_count": 115,
+    "blacklist_count": 0,
+    "filter_criteria": {
+        "min_volume_24h": 1e-06,
+        "original_min_volume": 0.001,
+        "total_exchange_pairs": 115,
+        "sort_by": "volume_desc",
+        "includes_all_pairs": true
+    },
+    "volume_statistics": {
+        "highest_volume": 5.91755611,
+        "lowest_volume": 0.00113702,
+        "average_volume": 0.4732128755652174,
+        "total_volume": 54.41948069
+    },
+    "pair_metadata": {
+        "MAGIC/BTC": {
+            "volume_24h": 5.91755611,
+            "price": 2.36e-06
+        },
+        "S/BTC": {
+            "volume_24h": 4.83022273,
+            "price": 2.6e-06
+        },
+        "NEXO/BTC": {
+            "volume_24h": 4.49183326,
+            "price": 1.154e-05
+        },
+        "PAXG/BTC": {
+            "volume_24h": 3.54299839,
+            "price": 0.02936
+        },
+        "TON/BTC": {
+            "volume_24h": 3.53194694,
+            "price": 2.957e-05
+        },
+        "FET/BTC": {
+            "volume_24h": 2.12960307,
+            "price": 5.71e-06
+        },
+        "RENDER/BTC": {
+            "volume_24h": 2.12294654,
+            "price": 3.163e-05
+        },
+        "WIF/BTC": {
+            "volume_24h": 2.08377591,
+            "price": 7.92e-06
+        },
+        "APT/BTC": {
+            "volume_24h": 1.58005715,
+            "price": 3.733e-05
+        },
+        "TAO/BTC": {
+            "volume_24h": 1.42120388,
+            "price": 0.003078
+        },
+        "OP/BTC": {
+            "volume_24h": 0.95648905,
+            "price": 6.09e-06
+        },
+        "TIA/BTC": {
+            "volume_24h": 0.94652663,
+            "price": 1.46e-05
+        },
+        "PYTH/BTC": {
+            "volume_24h": 0.90716216,
+            "price": 1.02e-06
+        },
+        "RARE/BTC": {
+            "volume_24h": 0.87799119,
+            "price": 5.6e-07
+        },
+        "LDO/BTC": {
+            "volume_24h": 0.74216805,
+            "price": 8.13e-06
+        },
+        "TFUEL/BTC": {
+            "volume_24h": 0.71417175,
+            "price": 3.2e-07
+        },
+        "HEI/BTC": {
+            "volume_24h": 0.7120552,
+            "price": 3.59e-06
+        },
+        "POL/BTC": {
+            "volume_24h": 0.70990094,
+            "price": 1.81e-06
+        },
+        "ADX/BTC": {
+            "volume_24h": 0.69162965,
+            "price": 1.1e-06
+        },
+        "ALT/BTC": {
+            "volume_24h": 0.63934247,
+            "price": 3.1e-07
+        },
+        "AR/BTC": {
+            "volume_24h": 0.58856176,
+            "price": 5.84e-05
+        },
+        "KDA/BTC": {
+            "volume_24h": 0.57898598,
+            "price": 3.59e-06
+        },
+        "BANANA/BTC": {
+            "volume_24h": 0.54668528,
+            "price": 0.0002045
+        },
+        "DIA/BTC": {
+            "volume_24h": 0.48661603,
+            "price": 6.48e-06
+        },
+        "OM/BTC": {
+            "volume_24h": 0.48178513,
+            "price": 2.22e-06
+        },
+        "YFI/BTC": {
+            "volume_24h": 0.42619392,
+            "price": 0.04627
+        },
+        "ILV/BTC": {
+            "volume_24h": 0.40982371,
+            "price": 0.000124
+        },
+        "PNUT/BTC": {
+            "volume_24h": 0.39516994,
+            "price": 1.98e-06
+        },
+        "OMNI/BTC": {
+            "volume_24h": 0.38676393,
+            "price": 3.63e-05
+        },
+        "PENDLE/BTC": {
+            "volume_24h": 0.33882755,
+            "price": 3.519e-05
+        },
+        "MANTA/BTC": {
+            "volume_24h": 0.33855806,
+            "price": 1.84e-06
+        },
+        "SAGA/BTC": {
+            "volume_24h": 0.31740468,
+            "price": 2.17e-06
+        },
+        "ZRO/BTC": {
+            "volume_24h": 0.31660579,
+            "price": 1.556e-05
+        },
+        "EIGEN/BTC": {
+            "volume_24h": 0.31188406,
+            "price": 1.004e-05
+        },
+        "HFT/BTC": {
+            "volume_24h": 0.30537051,
+            "price": 6.1e-07
+        },
+        "CYBER/BTC": {
+            "volume_24h": 0.30258473,
+            "price": 1.429e-05
+        },
+        "PHA/BTC": {
+            "volume_24h": 0.29762043,
+            "price": 8.8e-07
+        },
+        "ZEN/BTC": {
+            "volume_24h": 0.29550392,
+            "price": 6.82e-05
+        },
+        "GAS/BTC": {
+            "volume_24h": 0.28283733,
+            "price": 2.64e-05
+        },
+        "REQ/BTC": {
+            "volume_24h": 0.2790442,
+            "price": 1.29e-06
+        },
+        "IMX/BTC": {
+            "volume_24h": 0.26767506,
+            "price": 4.44e-06
+        },
+        "AWE/BTC": {
+            "volume_24h": 0.25873709,
+            "price": 4.8e-07
+        },
+        "XNO/BTC": {
+            "volume_24h": 0.24792424,
+            "price": 7.98e-06
+        },
+        "BERA/BTC": {
+            "volume_24h": 0.24119264,
+            "price": 1.616e-05
+        },
+        "PIVX/BTC": {
+            "volume_24h": 0.24064383,
+            "price": 1.18e-06
+        },
+        "AGLD/BTC": {
+            "volume_24h": 0.2379979,
+            "price": 6.19e-06
+        },
+        "RED/BTC": {
+            "volume_24h": 0.23108463,
+            "price": 3.19e-06
+        },
+        "IO/BTC": {
+            "volume_24h": 0.2214256,
+            "price": 5.15e-06
+        },
+        "AVA/BTC": {
+            "volume_24h": 0.22115707,
+            "price": 4.87e-06
+        },
+        "AUCTION/BTC": {
+            "volume_24h": 0.21685546,
+            "price": 8.65e-05
+        },
+        "ZK/BTC": {
+            "volume_24h": 0.21617918,
+            "price": 4.7e-07
+        },
+        "AXL/BTC": {
+            "volume_24h": 0.18398116,
+            "price": 3.01e-06
+        },
+        "ONG/BTC": {
+            "volume_24h": 0.18218861,
+            "price": 1.51e-06
+        },
+        "ARKM/BTC": {
+            "volume_24h": 0.18049374,
+            "price": 4.24e-06
+        },
+        "FIS/BTC": {
+            "volume_24h": 0.18021937,
+            "price": 1e-06
+        },
+        "ARDR/BTC": {
+            "volume_24h": 0.15887423,
+            "price": 8.2e-07
+        },
+        "STORJ/BTC": {
+            "volume_24h": 0.14899327,
+            "price": 2.33e-06
+        },
+        "CTSI/BTC": {
+            "volume_24h": 0.13989769,
+            "price": 5.8e-07
+        },
+        "ORDI/BTC": {
+            "volume_24h": 0.13860566,
+            "price": 8.036e-05
+        },
+        "MOVR/BTC": {
+            "volume_24h": 0.13109883,
+            "price": 5.28e-05
+        },
+        "RONIN/BTC": {
+            "volume_24h": 0.13071075,
+            "price": 4.51e-06
+        },
+        "STG/BTC": {
+            "volume_24h": 0.12488162,
+            "price": 1.35e-06
+        },
+        "AI/BTC": {
+            "volume_24h": 0.12411273,
+            "price": 1.08e-06
+        },
+        "LSK/BTC": {
+            "volume_24h": 0.12194805,
+            "price": 3.62e-06
+        },
+        "BEL/BTC": {
+            "volume_24h": 0.11082957,
+            "price": 2.24e-06
+        },
+        "API3/BTC": {
+            "volume_24h": 0.11080709,
+            "price": 6.03e-06
+        },
+        "SLF/BTC": {
+            "volume_24h": 0.10958646,
+            "price": 6.4e-07
+        },
+        "SCRT/BTC": {
+            "volume_24h": 0.10562083,
+            "price": 1.52e-06
+        },
+        "POWR/BTC": {
+            "volume_24h": 0.10506337,
+            "price": 1.45e-06
+        },
+        "SCR/BTC": {
+            "volume_24h": 0.10432011,
+            "price": 2.59e-06
+        },
+        "SYS/BTC": {
+            "volume_24h": 0.09959841,
+            "price": 3.7e-07
+        },
+        "KAITO/BTC": {
+            "volume_24h": 0.09936868,
+            "price": 9.96e-06
+        },
+        "BICO/BTC": {
+            "volume_24h": 0.09647924,
+            "price": 8.8e-07
+        },
+        "DATA/BTC": {
+            "volume_24h": 0.09541535,
+            "price": 1.3e-07
+        },
+        "OG/BTC": {
+            "volume_24h": 0.092404,
+            "price": 5.06e-05
+        },
+        "UMA/BTC": {
+            "volume_24h": 0.08937402,
+            "price": 1.067e-05
+        },
+        "LAYER/BTC": {
+            "volume_24h": 0.08426069,
+            "price": 5.3e-06
+        },
+        "A/BTC": {
+            "volume_24h": 0.08292649,
+            "price": 4.43e-06
+        },
+        "FLUX/BTC": {
+            "volume_24h": 0.07174669,
+            "price": 1.94e-06
+        },
+        "STRAX/BTC": {
+            "volume_24h": 0.06460048,
+            "price": 4.1e-07
+        },
+        "GLMR/BTC": {
+            "volume_24h": 0.06433217,
+            "price": 6e-07
+        },
+        "SSV/BTC": {
+            "volume_24h": 0.06230518,
+            "price": 7.37e-05
+        },
+        "XVS/BTC": {
+            "volume_24h": 0.05636642,
+            "price": 5.26e-05
+        },
+        "SHELL/BTC": {
+            "volume_24h": 0.05535552,
+            "price": 1.28e-06
+        },
+        "STEEM/BTC": {
+            "volume_24h": 0.05261219,
+            "price": 1.17e-06
+        },
+        "CELO/BTC": {
+            "volume_24h": 0.05089524,
+            "price": 2.76e-06
+        },
+        "BB/BTC": {
+            "volume_24h": 0.04918711,
+            "price": 8.7e-07
+        },
+        "FORTH/BTC": {
+            "volume_24h": 0.04815038,
+            "price": 2.191e-05
+        },
+        "BAND/BTC": {
+            "volume_24h": 0.04774228,
+            "price": 5.64e-06
+        },
+        "CTK/BTC": {
+            "volume_24h": 0.04650369,
+            "price": 2.91e-06
+        },
+        "FIDA/BTC": {
+            "volume_24h": 0.0464544,
+            "price": 8.6e-07
+        },
+        "ATA/BTC": {
+            "volume_24h": 0.04314672,
+            "price": 4e-07
+        },
+        "AEVO/BTC": {
+            "volume_24h": 0.04195786,
+            "price": 8.2e-07
+        },
+        "OXT/BTC": {
+            "volume_24h": 0.04083585,
+            "price": 4.7e-07
+        },
+        "MOVE/BTC": {
+            "volume_24h": 0.03852572,
+            "price": 1.14e-06
+        },
+        "W/BTC": {
+            "volume_24h": 0.03800679,
+            "price": 6.9e-07
+        },
+        "PHB/BTC": {
+            "volume_24h": 0.03761344,
+            "price": 4.73e-06
+        },
+        "ME/BTC": {
+            "volume_24h": 0.03283966,
+            "price": 6.44e-06
+        },
+        "NFP/BTC": {
+            "volume_24h": 0.03198029,
+            "price": 5.8e-07
+        },
+        "SANTOS/BTC": {
+            "volume_24h": 0.02790787,
+            "price": 1.898e-05
+        },
+        "POLYX/BTC": {
+            "volume_24h": 0.02719514,
+            "price": 1.19e-06
+        },
+        "WAN/BTC": {
+            "volume_24h": 0.02660618,
+            "price": 1.03e-06
+        },
+        "QTUM/BTC": {
+            "volume_24h": 0.02053828,
+            "price": 1.819e-05
+        },
+        "SKL/BTC": {
+            "volume_24h": 0.01743518,
+            "price": 1.8e-07
+        },
+        "NKN/BTC": {
+            "volume_24h": 0.01550876,
+            "price": 2.4e-07
+        },
+        "SFP/BTC": {
+            "volume_24h": 0.01496081,
+            "price": 4.07e-06
+        },
+        "GMT/BTC": {
+            "volume_24h": 0.01492754,
+            "price": 4e-07
+        },
+        "JST/BTC": {
+            "volume_24h": 0.01356214,
+            "price": 2.8e-07
+        },
+        "MAV/BTC": {
+            "volume_24h": 0.01335492,
+            "price": 4e-07
+        },
+        "ACH/BTC": {
+            "volume_24h": 0.01189218,
+            "price": 1.8e-07
+        },
+        "PORTAL/BTC": {
+            "volume_24h": 0.01016929,
+            "price": 4.1e-07
+        },
+        "FLM/BTC": {
+            "volume_24h": 0.00904632,
+            "price": 2.4e-07
+        },
+        "DODO/BTC": {
+            "volume_24h": 0.00267573,
+            "price": 3.7e-07
+        },
+        "ASTR/BTC": {
+            "volume_24h": 0.00206452,
+            "price": 2e-07
+        },
+        "RIF/BTC": {
+            "volume_24h": 0.00113702,
+            "price": 4.8e-07
+        }
+    }
+}

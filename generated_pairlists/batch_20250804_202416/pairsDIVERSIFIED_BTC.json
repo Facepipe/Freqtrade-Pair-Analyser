@@ -1,0 +1,64 @@
+{
+    "description": "Diversified portfolio across 9 crypto sectors (10 pairs)",
+    "config_name": "diversified_btc",
+    "created": "2025-08-04T19:24:33.700829+00:00",
+    "exchange": {
+        "pair_whitelist": [
+            "API3/BTC",
+            "AR/BTC",
+            "BAND/BTC",
+            "ILV/BTC",
+            "IMX/BTC",
+            "NKN/BTC",
+            "OP/BTC",
+            "SCRT/BTC",
+            "STORJ/BTC",
+            "YFI/BTC"
+        ],
+        "pair_blacklist": []
+    },
+    "whitelist_count": 10,
+    "blacklist_count": 0,
+    "filter_criteria": {
+        "sectors": [
+            "layer1",
+            "layer2",
+            "defi",
+            "gaming",
+            "oracle",
+            "storage",
+            "privacy",
+            "exchange",
+            "infrastructure"
+        ],
+        "pairs_per_sector": 5,
+        "min_volume_filter": 10,
+        "quote_currency": "BTC"
+    },
+    "sector_breakdown": {
+        "layer2": [
+            "OP/BTC",
+            "IMX/BTC"
+        ],
+        "defi": [
+            "YFI/BTC"
+        ],
+        "gaming": [
+            "ILV/BTC"
+        ],
+        "oracle": [
+            "API3/BTC",
+            "BAND/BTC"
+        ],
+        "storage": [
+            "AR/BTC",
+            "STORJ/BTC"
+        ],
+        "privacy": [
+            "SCRT/BTC"
+        ],
+        "infrastructure": [
+            "NKN/BTC"
+        ]
+    }
+}

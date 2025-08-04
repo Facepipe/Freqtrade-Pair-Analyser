@@ -1,7 +1,11 @@
+# FILENAME: pair_analyzer.py
+# ACTION: REPLACE EXISTING FILE (backup will be created automatically)
+# DESCRIPTION: Enhanced main analyzer with pairlist support
+
 #!/usr/bin/env python3
 """
-Freqtrade Pair Analyzer Pro - Main Entry Point
-Version: 2.0.0 - Fixed to use working VersionedAnalyzer
+Freqtrade Pair Analyzer Pro - Enhanced with Pairlist Support
+Version: 2.1.0 - Added config-based pairlist analysis
 """
 import argparse
 import logging
@@ -13,8 +17,9 @@ from typing import List, Dict
 project_root = Path(__file__).parent.parent
 sys.path.insert(0, str(project_root))
 
-# Import the WORKING analyzer from data_handler, not analyzer_core
+# Import the WORKING analyzer from data_handler
 from utils.data_handler import VersionedAnalyzer
+from utils.pairlist_handler import PairlistHandler
 
 # Configure logging
 log_format = '%(asctime)s - %(levelname)s - %(message)s'
@@ -29,17 +34,30 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 def parse_args():
-    """Parse command line arguments"""
+    """Parse command line arguments with pairlist support"""
     parser = argparse.ArgumentParser(
         description='Freqtrade Pair Analyzer Pro - Advanced cryptocurrency pair analysis tool',
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
-  python pair_analyzer.py --quote USDT --workers 4 --timeframe 1h
-  python pair_analyzer.py --quote USDT --workers 8 --timeframe 15m --top-pairs 20
+  # Analyze all pairs from exchange
+  python pair_analyzer.py --quote USDT --timeframe 1h
+  
+  # Analyze pairs from a specific config
+  python pair_analyzer.py --quote USDT --config strategy1 --timeframe 15m
+  
+  # Analyze combined pairs from all configs
+  python pair_analyzer.py --quote USDT --use-configs --timeframe 4h
+  
+  # List available pairlists
+  python pair_analyzer.py --list-configs --quote USDT
+  
+  # Analyze overlap between configs
+  python pair_analyzer.py --analyze-overlap --quote USDT
         """
     )
     
+    # Existing arguments
     parser.add_argument(
         '--quote', 
         type=str, 
@@ -95,10 +113,117 @@ Examples:
         help='Enable verbose logging'
     )
     
+    # NEW: Pairlist-related arguments
+    parser.add_argument(
+        '--config',
+        type=str,
+        help='Use pairs from specific config file (e.g. "strategy1", "config-btc")'
+    )
+    
+    parser.add_argument(
+        '--use-configs',
+        action='store_true',
+        help='Use combined pairs from all available config files'
+    )
+    
+    parser.add_argument(
+        '--exclude-configs',
+        type=str,
+        nargs='+',
+        help='Config names to exclude when using --use-configs'
+    )
+    
+    parser.add_argument(
+        '--list-configs',
+        action='store_true',
+        help='List all available config files with pair counts'
+    )
+    
+    parser.add_argument(
+        '--analyze-overlap',
+        action='store_true',
+        help='Analyze pair overlap between different configs'
+    )
+    
+    parser.add_argument(
+        '--export-pairlist',
+        type=str,
+        help='Export analyzed pairs to file (specify output path)'
+    )
+    
+    parser.add_argument(
+        '--user-data-dir',
+        type=str,
+        default='/home/facepipe/freqtrade/user_data',
+        help='Path to freqtrade user_data directory (default: /home/facepipe/freqtrade/user_data)'
+    )
+    
     return parser.parse_args()
 
-def print_results_summary(results: List[Dict], failed_pairs: List[str], args):
-    """Print a comprehensive results summary"""
+def list_available_configs(pairlist_handler: PairlistHandler, quote_currency: str):
+    """List all available configurations with pair counts"""
+    print("\n" + "="*60)
+    print("AVAILABLE PAIRLIST CONFIGURATIONS")
+    print("="*60)
+    
+    configs = pairlist_handler.list_available_configs(quote_currency)
+    
+    if not configs:
+        print(f"❌ No configs found with {quote_currency} pairs")
+        return
+    
+    print(f"\nFound {len(configs)} configs with {quote_currency} pairs:\n")
+    
+    total_unique_pairs = len(pairlist_handler.get_combined_pairlist(quote_currency))
+    
+    for config_name, pair_count in sorted(configs.items()):
+        print(f"  📋 {config_name:<25} : {pair_count:>3} pairs")
+    
+    print(f"\n📊 Total unique pairs across all configs: {total_unique_pairs}")
+    print("\n💡 Usage examples:")
+    print(f"    python pair_analyzer.py --quote {quote_currency} --config {list(configs.keys())[0]}")
+    print(f"    python pair_analyzer.py --quote {quote_currency} --use-configs")
+
+def analyze_pairlist_overlap(pairlist_handler: PairlistHandler, quote_currency: str):
+    """Analyze and display pairlist overlap between configs"""
+    print("\n" + "="*60)
+    print("PAIRLIST OVERLAP ANALYSIS")
+    print("="*60)
+    
+    analysis = pairlist_handler.analyze_pairlist_overlap(quote_currency)
+    
+    if "message" in analysis:
+        print(f"ℹ️  {analysis['message']}")
+        return
+    
+    print(f"\n📊 Analysis Summary:")
+    print(f"  Total configs: {analysis['total_configs']}")
+    print(f"  Common pairs (in all configs): {analysis['common_count']}")
+    
+    print(f"\n📋 Config sizes:")
+    for config_name, size in analysis['config_sizes'].items():
+        print(f"  {config_name:<25} : {size:>3} pairs")
+    
+    if analysis['common_pairs']:
+        print(f"\n🤝 Common pairs across all configs ({len(analysis['common_pairs'])}):")
+        for i, pair in enumerate(analysis['common_pairs'][:10], 1):
+            print(f"  {i:2d}. {pair}")
+        if len(analysis['common_pairs']) > 10:
+            print(f"  ... and {len(analysis['common_pairs']) - 10} more")
+    
+    print(f"\n🔹 Unique pairs per config:")
+    for config_name, unique_pairs in analysis['unique_pairs'].items():
+        if unique_pairs:
+            print(f"  {config_name}: {len(unique_pairs)} unique pairs")
+            for pair in unique_pairs[:3]:
+                print(f"    • {pair}")
+            if len(unique_pairs) > 3:
+                print(f"    ... and {len(unique_pairs) - 3} more")
+        else:
+            print(f"  {config_name}: No unique pairs")
+
+def print_results_summary(results: List[Dict], failed_pairs: List[str], args, pair_source: str):
+    """Print a comprehensive results summary with pair source info"""
     print("\n" + "="*80)
     print("FREQTRADE PAIR ANALYZER - RESULTS SUMMARY")
     print("="*80)
@@ -108,6 +233,7 @@ def print_results_summary(results: List[Dict], failed_pairs: List[str], args):
     print(f"  Timeframe: {args.timeframe}")
     print(f"  Days Analyzed: {args.days}")
     print(f"  Workers Used: {args.workers}")
+    print(f"  Pair Source: {pair_source}")
     
     print(f"\nAnalysis Results:")
     print(f"  Total Pairs Processed: {len(results) + len(failed_pairs)}")
@@ -142,7 +268,7 @@ def print_results_summary(results: List[Dict], failed_pairs: List[str], args):
     
     if failed_pairs:
         print(f"\nPairs with Issues ({len(failed_pairs)}):")
-        for i, pair in enumerate(failed_pairs[:10], 1):  # Show first 10
+        for i, pair in enumerate(failed_pairs[:10], 1):
             print(f"  {i:2d}. {pair}")
         if len(failed_pairs) > 10:
             print(f"  ... and {len(failed_pairs) - 10} more")
@@ -150,7 +276,7 @@ def print_results_summary(results: List[Dict], failed_pairs: List[str], args):
     print("\n" + "="*80)
 
 def main():
-    """Main execution function"""
+    """Main execution function with pairlist support"""
     try:
         args = parse_args()
         
@@ -158,23 +284,71 @@ def main():
         if args.verbose:
             logging.getLogger().setLevel(logging.DEBUG)
         
-        logger.info("Starting analysis process")
+        logger.info("Starting Freqtrade Pair Analyzer Pro v2.1.0")
         logger.info(f"Arguments: {vars(args)}")
         
-        # Initialize analyzer with the quote currency and workers
+        # Initialize pairlist handler
+        user_data_dir = Path(args.user_data_dir)
+        pairlist_handler = PairlistHandler(user_data_dir)
+        
+        # Handle informational commands
+        if args.list_configs:
+            list_available_configs(pairlist_handler, args.quote)
+            return 0
+        
+        if args.analyze_overlap:
+            analyze_pairlist_overlap(pairlist_handler, args.quote)
+            return 0
+        
+        # Determine which pairs to analyze
+        pairs_to_analyze = None
+        pair_source = "Exchange (all active pairs)"
+        
+        if args.config:
+            # Use specific config
+            pairs_to_analyze = pairlist_handler.get_pairlist_by_config(args.config, args.quote)
+            pair_source = f"Config: {args.config}"
+            if not pairs_to_analyze:
+                logger.error(f"No pairs found in config '{args.config}' for {args.quote}")
+                return 1
+        
+        elif args.use_configs:
+            # Use combined configs
+            exclude_configs = args.exclude_configs or []
+            pairs_to_analyze = pairlist_handler.get_combined_pairlist(args.quote, exclude_configs)
+            pair_source = f"All configs (excluding: {exclude_configs})" if exclude_configs else "All configs"
+            if not pairs_to_analyze:
+                logger.error(f"No pairs found in any configs for {args.quote}")
+                return 1
+        
+        # Log pair source information
+        if pairs_to_analyze:
+            logger.info(f"Using pairs from: {pair_source}")
+            logger.info(f"Pairs to analyze: {len(pairs_to_analyze)}")
+            if args.verbose:
+                logger.debug(f"Pair list: {pairs_to_analyze[:10]}{'...' if len(pairs_to_analyze) > 10 else ''}")
+        
+        # Initialize analyzer
         logger.info("Initializing analyzer...")
         analyzer = VersionedAnalyzer(
             quote_currency=args.quote,
             max_workers=args.workers
         )
         
-        # Update analyzer parameters based on command line args
+        # Update analyzer parameters
         analyzer.timeframe = args.timeframe
         analyzer.days_to_analyze = args.days
         
+        # Override the pair selection if we have specific pairs
+        if pairs_to_analyze:
+            # Monkey patch the _get_valid_pairs method to return our pairs
+            original_get_valid_pairs = analyzer._get_valid_pairs
+            analyzer._get_valid_pairs = lambda: pairs_to_analyze
+            logger.info(f"Overriding pair selection with {len(pairs_to_analyze)} pairs from {pair_source}")
+        
         logger.info(f"Starting analysis for {args.quote} pairs with timeframe {args.timeframe}...")
         
-        # Run the analysis (this is the working implementation)
+        # Run the analysis
         results, failed_pairs = analyzer.run_analysis()
         
         # Save results
@@ -182,8 +356,21 @@ def main():
             logger.info("Saving results...")
             report = analyzer.save_results(results, failed_pairs)
             
+            # Add pairlist metadata to report
+            if 'metadata' in report:
+                report['metadata']['pair_source'] = pair_source
+                report['metadata']['pairlist_config'] = args.config if args.config else None
+                report['metadata']['used_configs'] = args.use_configs
+            
+            # Export pairlist if requested
+            if args.export_pairlist and results:
+                export_pairs = [r['pair'] for r in results]
+                export_path = Path(args.export_pairlist)
+                if pairlist_handler.export_pairlist(export_pairs, export_path, "json"):
+                    logger.info(f"Exported {len(export_pairs)} pairs to {export_path}")
+            
             # Display summary
-            print_results_summary(results, failed_pairs, args)
+            print_results_summary(results, failed_pairs, args, pair_source)
             
             logger.info("Analysis completed successfully!")
             return 0
